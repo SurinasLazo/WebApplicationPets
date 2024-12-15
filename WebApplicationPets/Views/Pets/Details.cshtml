@@ -1,0 +1,81 @@
+﻿@model WebApplicationPets.Models.Pet
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>@Model.Gender</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>@Model.Weight</td>
+        </tr>
+        <tr>
+            <td>Photo</td>
+            <td>
+                <img src="@Model.PhotoUrl" alt="Image of @Model.Name" style="max-width:200px; max-height:200px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>@Model.ReferencedCategory?.Name</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+<style>
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: #fff;
+        border-collapse: collapse;
+    }
+
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border: 1px solid #dee2e6;
+        text-align: left;
+    }
+
+    .table thead th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+</style>
